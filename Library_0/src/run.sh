@@ -2,5 +2,5 @@
 
 FIRSTARG=$1
 
-java Main.Main $FIRSTARG
+java project.project $FIRSTARG
 

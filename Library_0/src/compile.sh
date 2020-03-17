@@ -1,3 +1,3 @@
 #!/bin/bash
 
-javac -cp -d ./Main/Main.java ./Main/classes/MyLibrary.java
+javac -cp -d ./project/project.java ./project/classes/MyLibraryModel.java
