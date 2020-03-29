@@ -1,6 +1,7 @@
 #!/bin/bash
 
-FIRSTARG=$1
+OPTION=$1
+KEYWORD=$2
 
-java project.project $FIRSTARG
+java project.Main $OPTION $KEYWORD
 
