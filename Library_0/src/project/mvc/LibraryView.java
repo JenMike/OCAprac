@@ -8,6 +8,6 @@ import java.util.List;
 public class LibraryView{
     public void printLibrary(String option, String keyword){
         LibraryReader read = new LibraryReader();
-        System.out.println("You Have -> " + read.searchAndReturn(keyword));
+        System.out.println("You Have -> " + "\n" + read.searchAndReturn(keyword));
     }
 }

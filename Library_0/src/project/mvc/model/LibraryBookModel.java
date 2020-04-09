@@ -1,10 +1,10 @@
 package project.mvc.model;
 
-public class LibraryBookModel{
+abstract public class LibraryBookModel{
     private String title;
     private String author;
     private String sku;
-    private String format;
+    protected String format;
 
     public LibraryBookModel(){}
     public LibraryBookModel(String title, String author, String sku, String format) {
@@ -42,13 +42,10 @@ public class LibraryBookModel{
         return format;
     }
 
-    public void setFormat(String format) {
-        this.format = format;
-    }
+    abstract public void setFormat();
 
     @Override
     public String toString() {
-        return title + '\'' + author + '\'' + sku + '\'' + format + '\'' +
-                '\n';
+        return title.replace("\"", " ") + author.replace("\"", " ") + sku.replace("\"", " ") + format.replace("\"", "") + '\n';
     }
 }
