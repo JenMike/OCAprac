@@ -3,50 +3,39 @@ package project;
 import project.mvc.LibraryController;
 import project.mvc.LibraryView;
 import project.mvc.MyLibraryModel;
+import project.mvc.SearchThread;
+import project.mvc.controller.LibraryReader;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Optional;
+import java.util.Scanner;
 
-public class Main implements Runnable{
-
-    static BufferedReader in ;  static int quit=0;
-
-    public void run(){
-        String msg = null;
-        while(true){
-            try{
-                msg=in.readLine();
-                //System.out.println("Type a search word: ");
-                String keyword = msg;
-                //System.out.println("Option: ");
-                String option = msg;
-                MyLibraryModel model = returnBooksInLibrary(option, keyword); // -t  -a -s -f
-                LibraryView view = new LibraryView();
-                LibraryController controller = new LibraryController(model, view);
-
-                controller.renderView();
-            }catch(Exception e){}
-
-            if(msg.equals("Q")) {quit=1;break;}
-        }
-    }
+public class Main{
 
     public static void main(String[] args) throws InterruptedException {
-        in=new BufferedReader(new InputStreamReader(System.in));
-
-        Thread t1=new Thread(new Main());
-        t1.start();
 
         System.out.println("Type a keyword to search or hold shift and press Q to terminate");
 
-        while(true){
-            t1.sleep(10);
-            if(quit==1) break;
-            new Main().run();
+        Scanner sc = new Scanner(System.in);
+        String key = sc.next();
+  //      LibraryView view = new LibraryView();
 
+
+        while(!key.equals("Q")){
+            SearchThread t1 = new SearchThread(key);
+            t1.start();
+                                                                                                                                                                                                                                                                                                                                                                                                            t1.join();
+
+//            MyLibraryModel model = buildLibraryModel("t", key);
+//            LibraryController controller = new LibraryController(model, view);
+//            controller.renderView();
+            System.out.println("Type a keyword to search or hold shift and press Q to terminate");
+            key = sc.next();
         }
+
     }
-    private static MyLibraryModel returnBooksInLibrary(String option, String keyword){
+    public static MyLibraryModel buildLibraryModel(String option, String keyword){
         MyLibraryModel model = new MyLibraryModel();
         model.setOption(option);
         model.setKeyword(keyword);
