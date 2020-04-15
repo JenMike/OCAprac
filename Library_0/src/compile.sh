@@ -1,3 +1,3 @@
 #!/bin/bash
 
-javac -cp -d -verbose ./project/Main.java ./project/mvc/MyLibraryModel.java ./project/mvc/LibraryView.java ./project/mvc/LibraryController.java ./project/mvc/model/LibraryBookModel.java ./project/mvc/controller/LibraryReader.java
+javac -cp -d ./project/Main.java ./project/mvc/MyLibraryModel.java ./project/mvc/LibraryView.java ./project/mvc/LibraryController.java ./project/mvc/model/LibraryBookModel.java ./project/mvc/controller/LibraryReader.java ./project/mvc/model/LibraryAudibleModel.java ./project/mvc/model/LibraryBoxSetModel.java ./project/mvc/model/LibraryDVDModel.java ./project/mvc/model/LibraryHardcoverModel.java ./project/mvc/model/LibraryKindleModel.java ./project/mvc/model/LibraryPaperbackModel.java

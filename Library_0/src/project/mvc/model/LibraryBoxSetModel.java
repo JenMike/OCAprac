@@ -4,6 +4,6 @@ public class LibraryBoxSetModel extends LibraryBookModel {
 
     @Override
     public void setFormat() {
-        this.format = "Box Set";
+        this.format = "in Box Set format";
     }
 }

@@ -2,6 +2,10 @@ package project.mvc;
 import project.mvc.LibraryView;
 import project.mvc.MyLibraryModel;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.NoSuchFileException;
+
 public class LibraryController{
     private LibraryView view;
     private MyLibraryModel model;
@@ -27,7 +31,7 @@ public class LibraryController{
         return model.getKeyword();
     }
 
-    public void renderView(){
+    public void renderView() throws IOException {
         view.printLibrary(model.getOption(), model.getKeyword());
     }
 }

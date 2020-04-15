@@ -1,7 +1,7 @@
 #!/bin/bash
 
-OPTION=$1
-KEYWORD=$2
+#OPTION=$1
+#KEYWORD=$2
 
-java project.Main $OPTION $KEYWORD
+java project.Main #$OPTION $KEYWORD
 
