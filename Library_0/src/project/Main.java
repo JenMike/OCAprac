@@ -14,17 +14,22 @@ public class Main{
 
         try {
             createFileIfNotExists();
-            System.out.println("Type a keyword to search or Q to terminate");
-            Scanner sc = new Scanner(System.in);
-            String key = sc.next();
-            System.out.println();
+
             LibraryView view = new LibraryView();
-            while (!key.equals("Q")) {
-                MyLibraryModel model = buildLibraryModel("t", key);
+            //System.out.println("Type a keyword and option to search or Q to terminate");
+            Scanner sc = new Scanner(System.in);
+            view.setOutputText(sc);
+            System.out.println();
+
+
+            while (!view.key.equals("Q")) {
+                MyLibraryModel model = buildLibraryModel(view.option, view.key);
                 LibraryController controller = new LibraryController(model, view);
+
                 controller.renderView();
-                System.out.println("Type a keyword to search or Q to terminate");
-                key = sc.next();
+
+                //System.out.println("Type a keyword and option to search or Q to terminate");
+                view.setOutputText(sc);
             }
         } catch (IOException e){
             System.out.println("Error: Something went wrong: " + e.getMessage());
@@ -32,15 +37,19 @@ public class Main{
     }
     public static MyLibraryModel buildLibraryModel(String option, String keyword){
         MyLibraryModel model = new MyLibraryModel();
+
         model.setOption(option);
         model.setKeyword(keyword);
+
         return model;
     }
 
     public static void createFileIfNotExists() throws IOException {
         File file = new File("resources/Purchases.csv");
+
         if (file.createNewFile()) {
             LibraryReader callingBackUp = new LibraryReader();
+
             System.out.println("Library was not found! New Library Generated to search.");
             System.out.println();
             callingBackUp.backUpLibrary(file);

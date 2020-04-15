@@ -14,63 +14,78 @@ import java.util.stream.Stream;
 public class LibraryReader{
 
     private List<LibraryBookModel> bookModels = new ArrayList<>();
-    private List<String> backupList = new ArrayList<>();
+
     public LibraryReader(){}
 
     private void readFileIntoList() throws IOException {
         File file = new File("resources/Purchases.csv");
 
-         Stream<String> lines = Files.lines(file.toPath()).filter(c -> c.contains(","));
-            List<String> library = lines.collect(Collectors.toList());
-            for (String line : library) {
-                String[] lineParts = line.split(",");
-                String format = "";
-                if (lineParts.length == 4) {
-                    format = lineParts[3];
-                }
-                LibraryBookModel book;
-                switch (format) {
-                    case "Hardcover":
-                        book = new LibraryHardcoverModel();
-                        break;
-                    case "Audible":
-                        book = new LibraryAudibleModel();
-                        break;
-                    case "Kindle":
-                        book = new LibraryKindleModel();
-                        break;
-                    case "Box Set":
-                        book = new LibraryBoxSetModel();
-                        break;
-                    case "DVD":
-                        book = new LibraryDVDModel();
-                        break;
-                    default:
-                        book = new LibraryPaperbackModel();
-                }
-                book.setTitle(lineParts[0]);
+        Stream<String> lines = Files.lines(file.toPath()).filter(c -> c.contains(","));
+        List<String> library = lines.collect(Collectors.toList());
 
-                String byAuthor = (!lineParts[1].isEmpty()) ? "by" + lineParts[1] : lineParts[1];
-                book.setAuthor(byAuthor);
-
-                book.setSku(lineParts[2]);
-                book.setFormat();
-                bookModels.add(book);
-
+        for (String line : library) {
+            String[] lineParts = line.split(",");
+            String format = "";
+            if (lineParts.length == 4) {
+                format = lineParts[3];
             }
+            LibraryBookModel book;
+            switch (format) {
+                case "Hardcover":
+                    book = new LibraryHardcoverModel();
+                    break;
+                case "Audible":
+                    book = new LibraryAudibleModel();
+                    break;
+                case "Kindle":
+                    book = new LibraryKindleModel();
+                    break;
+                case "Box Set":
+                    book = new LibraryBoxSetModel();
+                    break;
+                case "DVD":
+                    book = new LibraryDVDModel();
+                    break;
+                default:
+                    book = new LibraryPaperbackModel();
+            }
+            book.setTitle(lineParts[0]);
 
+            String byAuthor = (!lineParts[1].isEmpty()) ? "by" + lineParts[1] : lineParts[1];
+            book.setAuthor(byAuthor);
+
+            book.setSku(lineParts[2]);
+            book.setFormat();
+
+            bookModels.add(book);
+        }
     }
 
-    public ArrayList<String> searchAndReturn(String keyword) throws IOException{
+    public ArrayList<String> searchAndReturn(String option, String keyword) throws IOException{
         if (bookModels.isEmpty()){
             readFileIntoList();
         }
         ArrayList<String> searchResults = new ArrayList<>();
 
         for (LibraryBookModel book : bookModels){
-            String testTitle = book.getTitle();
-
-            if (testTitle.toLowerCase().contains(keyword.toLowerCase())){
+            String modelToSearch = "";
+            switch(option){
+                case "-t":
+                    modelToSearch = book.getTitle();
+                    break;
+                case "-a":
+                    modelToSearch = book.getAuthor();
+                    break;
+                case "-s":
+                    modelToSearch = book.getSku();
+                    break;
+                case "-f":
+                    modelToSearch = book.getFormat();
+                    break;
+                case "-u":
+                    modelToSearch = book.getTitle() + book.getAuthor() + book.getSku() + book.getFormat();
+            }
+            if (modelToSearch.toLowerCase().contains(keyword.toLowerCase())){
                 searchResults.add(book.toString());
             }
         }
