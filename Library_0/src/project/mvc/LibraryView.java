@@ -18,10 +18,7 @@ public class LibraryView{
         LibraryReader read = new LibraryReader();
         ArrayList<String> booksFromSearch = read.searchAndReturn(option, keyword);
         if(booksFromSearch.isEmpty()){
-            System.out.println("Sorry! You don't have this item in your Library. Possible reasons:");
-            System.out.println("Option to search from is incorrect");
-            System.out.println("Option does not match category of Keyword.");
-            System.out.println("Item not in Library.");
+            System.out.println("You don't have this item in your Library.");
             System.out.println();
         }
         else {

@@ -16,7 +16,6 @@ public class Main{
             createFileIfNotExists();
 
             LibraryView view = new LibraryView();
-            //System.out.println("Type a keyword and option to search or Q to terminate");
             Scanner sc = new Scanner(System.in);
             view.setOutputText(sc);
             System.out.println();
@@ -28,7 +27,6 @@ public class Main{
 
                 controller.renderView();
 
-                //System.out.println("Type a keyword and option to search or Q to terminate");
                 view.setOutputText(sc);
             }
         } catch (IOException e){

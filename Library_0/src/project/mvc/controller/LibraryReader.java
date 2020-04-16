@@ -68,24 +68,24 @@ public class LibraryReader{
         ArrayList<String> searchResults = new ArrayList<>();
 
         for (LibraryBookModel book : bookModels){
-            String modelToSearch = "";
+            String categoryToSearch = "";
             switch(option){
                 case "-t":
-                    modelToSearch = book.getTitle();
+                    categoryToSearch = book.getTitle();
                     break;
                 case "-a":
-                    modelToSearch = book.getAuthor();
+                    categoryToSearch = book.getAuthor();
                     break;
                 case "-s":
-                    modelToSearch = book.getSku();
+                    categoryToSearch = book.getSku();
                     break;
                 case "-f":
-                    modelToSearch = book.getFormat();
+                    categoryToSearch = book.getFormat();
                     break;
                 case "-u":
-                    modelToSearch = book.getTitle() + book.getAuthor() + book.getSku() + book.getFormat();
+                    categoryToSearch = book.getTitle() + book.getAuthor() + book.getSku() + book.getFormat();
             }
-            if (modelToSearch.toLowerCase().contains(keyword.toLowerCase())){
+            if (categoryToSearch.toLowerCase().contains(keyword.toLowerCase())){
                 searchResults.add(book.toString());
             }
         }
