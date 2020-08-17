@@ -1,0 +1,179 @@
+    <table style="width: 90%;">
+
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><a target="_blank">
+                <img src="./icons/hp.jpeg" alt="harry potter">
+            </a> Harry Potter - J.K. Rowling</td>
+            <td><button onclick="showAvailable()" id="popupbtn" class="btn"><i class="fas fa-plus-circle"></i> <i class="far fa-bookmark"></i></td>
+        </tr>
+        <tr>
+            <td><a target="_blank">
+                <img src="./icons/sw.jpg" alt="swann">
+            </a> Swann's Way - Marcel Proust</td>
+            <td><button onclick="showAvailable()" id="popupbtn1" class="btn"><i class="fas fa-plus-circle"></i> <i class="far fa-bookmark"></i></td>
+
+        </tr>
+        <tr>
+            <td><a target="_blank">
+                <img src="./icons/cat.jpeg" alt="cat">
+            </a>Cat in the Hat - Dr. Suess</td>
+            <td><button onclick="showAvailable()" id="popupbtn2" class="btn"><i class="fas fa-plus-circle"></i> <i class="far fa-bookmark"></i></td>
+        </tr>
+        <tr>
+            <td><a>
+                <img src="./icons/rws.jpg" alt="richard III">
+            </a>Richard III - William Shakespeare</td>
+            <td><button onclick="showAvailable()" id="popupbtn3" class="btn"><i class="fas fa-plus-circle"></i> <i class="far fa-bookmark"></i></td>
+        </tr>
+        <tr>
+            <td><a>
+                <img src="./icons/sh.jpg" alt="stephen hawking">
+            </a>A Brief History of Time - Stephen Hawking</td>
+            <td><button onclick="showAvailable()" id="popupbtn4" class="btn"><i class="fas fa-plus-circle"></i> <i class="far fa-bookmark"></i></td>
+        </tr>
+    </table>
+
+
+
+
+
+
+
+
+LOGIN.XHTML
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+    <link href="./icons/fontawesome-free-5.13.0-web/css/all.css" rel="stylesheet" />
+    <link href="stylesheet.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" type="image/png" href="./icons/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weblib | Login</title>
+</h:head>
+<h:body>
+<div class="background-image"></div>
+<div class="text-block">
+    <h:form>
+        <h:outputText value="Enter Username: " />
+        <h:inputText id="userName" value="#{loginBean.userName}" />
+        <h:outputText value="Enter Password: " />
+        <h:inputSecret id="password"
+                       value="#{loginBean.password}" />
+        <h:commandButton value="Login"
+                         action="#{loginBean.checkValidUser}"/>
+<!--        <label for="userName" style="color: whitesmoke;"><i class="fa fa-user-astronaut"></i></label>
+        <input type="text" name="username" id="username" placeholder="Username" onfocus="this.placeholder = ''" onfocusout="this.placeholder = 'Username'"required /><br><br>
+        <label for="password" style="color: whitesmoke;"><i class="fa fa-fingerprint"></i></label>
+        <input type="password" name="password" id="password" placeholder="Password" onfocus="this.placeholder = ''" onfocusout="this.placeholder = 'Password'"required /><br><br>
+        <input type="submit" value="Login" /> -->
+    </h:form>
+</div>
+</h:body>
+</html>
+
+
+recent login.xhtml
+
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+    <link href="./icons/fontawesome-free-5.13.0-web/css/all.css" rel="stylesheet" />
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" type="image/png" href="./icons/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weblib | Login</title>
+</h:head>
+<h:body>
+    <div class="background-image"></div>
+    <div class="text-block">
+        <h:form>
+            <h:outputText value="Enter Username: " />
+            <h:inputText id="userName" value="#{loginBean.userName}" />
+            <h:outputText value="Enter Password: " />
+            <h:inputSecret id="password"
+                           value="#{loginBean.password}" />
+            <h:commandButton value="Login"
+                             action="#{loginBean.checkValidUser}"/>
+            <!--        <label for="userName" style="color: whitesmoke;"><i class="fa fa-user-astronaut"></i></label>
+                    <input type="text" name="username" id="username" placeholder="Username" onfocus="this.placeholder = ''" onfocusout="this.placeholder = 'Username'"required /><br><br>
+                    <label for="password" style="color: whitesmoke;"><i class="fa fa-fingerprint"></i></label>
+                    <input type="password" name="password" id="password" placeholder="Password" onfocus="this.placeholder = ''" onfocusout="this.placeholder = 'Password'"required /><br><br>
+                    <input type="submit" value="Login" /> -->
+        </h:form>
+    </div>
+</h:body>
+</html>
+
+
+register.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="./icons/fontawesome-free-5.13.0-web/css/all.css" rel="stylesheet">
+    <link href="../src/main/stylesheet.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" type="image/png" href="./icons/favicon.ico"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weblib | Register</title>
+</head>
+<body>
+<div class="background-image"></div>
+<div class="text-block">
+    <form action="RegisterServlet" method="POST">
+        <label for="username"><i class="fa fa-user-astronaut"></i></label>
+        <input type="text" id="username" name="username" placeholder="Username" onfocus="this.placeholder = ''" onfocusout="this.placeholder = 'Username'"required><br><br>
+        <label for="password"><i class="fa fa-fingerprint"></i></label>
+        <input type="password" id="password" name="password" placeholder="Password" onfocus="this.placeholder = ''" onfocusout="this.placeholder = 'Password'"required><br><br>
+        <label for="passwordc"><i class="fa fa-fingerprint"></i></label>
+        <input type="password" id="passwordc" name="passwordc" placeholder="confirm password" onfocus="this.placeholder = ''" onfocusout="this.placeholder = 'Password'"required><br><br>
+        <label for="email"><i class="far fa-paper-plane"></i></label>
+        <input type="text" id="email" name="email" placeholder="Email" onfocus="this.placeholder = ''" onfocusout="this.placeholder = 'Email'"required><br><br>
+        <input type="submit" value="Register" />
+    </form>
+    <div id="PopUp" class="popup-box">
+        <div class="popup">
+            <span class="popup-x">&times;</span>
+            <p>Check your email for confirmation link </p>
+        </div>
+    </div>
+    <script>
+        var popup = document.getElementById("PopUp");
+        var span = document.getElementsByClassName("popup-x")[0];
+
+        showAvailable = function() {
+            popup.style.display = "block";
+        }
+        span.onclick = function() {
+            popup.style.display = "none";
+        }
+    </script>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

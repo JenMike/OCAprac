@@ -1,0 +1,9 @@
+1   Huckleberry Finn    Mark Twain
+2   Cat In The Hats Learning Library    Dr Seuss
+3   Richard III  William Shakespeare
+4   A Shakespeare Story: Julius Caesar  William Shakespeare
+5   Cosmos   Carl Sagan
+6   The Stranger in the Woods    Michael Finkel
+7   Montessori from the Start    Paula Polk Lillard
+8   Harry Potter and the Philosopher's Stone    J.K. Rowling
+9   Harry Potter and the Order of the Phoenix    J.K. Rowling
